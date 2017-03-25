@@ -1,7 +1,7 @@
 User-agent: *
 Disallow: /*.jpg$
-Disallow: assets/*.png$
+Disallow: /assets/*.png$
 Disallow: /*.gif$
-Disallow: assets/ 
+Disallow: /assets/ 
 
 sitemap: http://ghadaabdl.me/sitemap.xml
