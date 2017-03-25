@@ -2,6 +2,6 @@ User-agent: *
 Disallow: /*.jpg$
 Disallow: /*.png$
 Disallow: /*.gif$
-Disallow: /assets/ 
+Disallow: assets/ 
 
 sitemap: http://ghadaabdl.me/sitemap.xml
