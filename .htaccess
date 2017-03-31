@@ -1,1 +1,2 @@
+deny from all
 ErrorDocument 404 http://ghadaabdl.me/error/error.html
