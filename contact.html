@@ -126,19 +126,19 @@
                                 <h4 style="color:white;"><?php if(!empty($message)) echo $message; ?></h4>
                                 <!-- Start Contact Form -->
                                 <div class="contact-form">
-			<form name="form1" id="form1" action="" method="post">
+			<form name="form1" id="contact-form" action="https://formspree.io/ghadasamia.abdelmoumen@esprit.tn"   method="POST">
 					<fieldset>
-					  <input style="color:black ;" type="text" name="fullname" placeholder="Full Name" />
+					  <input style="color:black ;" type="text" name="name" placeholder="Full Name" id="inputName" />
 					  <br />
-					  <input style="color:black ;" type="text" name="subject" placeholder="Subject" />
+					  <input style="color:black ;" type="email" name="_replyto" placeholder="Mail" id="inputEmail" />
 					  <br />
-					  <input  style="color:black ;" type="text" name="phone" placeholder="Phone" />
+					 
+					  <textarea style="color:black ;"  rows="4" cols="20" name="message" placeholder="Comments" id="inputMessage" ></textarea>
+                        <input type="text" name="_gotcha" style=" display: none;">
 					  <br />
-					  <input style="color:black ;" type="text" name="emailid" placeholder="Email" />
-					  <br />
-					  <textarea style="color:black ;"  rows="4" cols="20" name="comments" placeholder="Comments"></textarea>
-					  <br />
-					  <input type="submit"  id="submit-btn" class="btn btn-color hover-animate"  name="submit" value="Send" />
+					  <button class="btn btn-default" type="submit" id="email-submit-btn" value="Send">
+            Submit
+          </button>
 					</fieldset>
 			</form>
 
@@ -234,6 +234,36 @@
   ga('send', 'pageview');
 
 </script>
-   </body>
+          <script>
+        $(document).ready(function() {
+  $('#contact-form').submit(function(e) {
+    var name    = document.getElementById('inputName')
+    var email   = document.getElementById('inputEmail')
+    var message = document.getElementById('inputMessage')
+
+    if (!name.value || !email.value || !message.value) {
+      alertify.error("Please check your entries");
+      return false;
+    } else {
+      $.ajax({
+        method: 'POST',
+        url: '//formspree.io/ghadasamia.abdelmoumen@esprit.tn',
+        data: $('#contact-form').serialize(),
+        datatype: 'json'
+      });
+      e.preventDefault();
+      $(this).get(0).reset();
+      alertify.success("Message sent");
+    }
+  });
+});  
+          
+          
+          </script>   
+          
+          
+          
+          
+          </body>
 
    </html>
